@@ -1,0 +1,12 @@
+# banking_insurance — build notes
+
+- 28 fictional entities (16 banks, 8 non-life insurers, 4 life insurers) x 7 report variants = 196 fixtures; 98 authored question families (35 calc, 10 extraction, 14 table-grounded qa, 10 stable-knowledge qa topics, 9 classification, 12 summarization, 8 tool).
+- Scope covered: net interest margin, earning-asset yield, cost of funds and spread; efficiency ratio and its revenue base; provision build/release, net charge-offs, allowance coverage; CET1, RWA density, tangible book value and P/TBV; loss, expense and combined ratios; underwriting versus investment income; embedded value and VNB margin; stated-band classification of capital, reserve, asset-quality, margin, efficiency, combined-ratio and VNB language.
+- Every context is a two-period regulatory-style summary table with a Units line first, footnotes, an `n.a.` cell and reported-ratio rows that act as distractors (for example a NIM computed on total assets rather than earning assets).
+- Ground truth is computed in code from the same values that are rendered; `verify_bi.py` re-parses each emitted table and reproduces 3372 derived answers with zero mismatches, and all dollar identities (NII, PPNR, underwriting income, EV bridge) are asserted.
+- Splits are assigned per fixture inside each task stratum, ranked by sha256("task|fixture_key"); group sizes are uniform per task so train/val/test land exactly on 800/100/100 with no context crossing a split.
+- Known weakness: tables are template-generated prose, so wording repeats across entities even though numbers, periods, entity names and table variants differ; the 441 masked question families overstate lexical diversity because period labels and entity names split otherwise identical templates.
+- Known weakness: only two periods per table, so trend questions are single-change comparisons; no quarterly seasonality or three-year CAGR families.
+- Coverage gaps: IFRS 17 contractual service margin, solvency capital ratio and excess capital, bank trading/VaR and liquidity ratios (LCR/NSFR), FX translation, segment-level and geographic splits, and any real-world calibration.
+- All numbers are synthetic and internally consistent only; they are not calibrated to any real bank, insurer or filing.
+- Post-build fix by orchestrator: 16 embedded-value growth rows used an opening-to-closing basis while the wording said 'from FYx to FYy'; questions reworded to state the basis. Row count, quotas and splits unchanged.

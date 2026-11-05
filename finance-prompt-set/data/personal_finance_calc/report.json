@@ -1,0 +1,32 @@
+{
+  "area": "personal_finance_calc",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 802,
+    "val": 98,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 440,
+    "text": 433,
+    "list": 11,
+    "label": 100
+  },
+  "distinct_question_families": 104,
+  "top_family_share": 0.021,
+  "distinct_contexts": 741,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 0.92,
+  "validation": "pass",
+  "sha256": "6c31c7a0da5e45b1da233836950c88d02872d533e70a2054c9679483e3def2f3",
+  "notes": "household arithmetic only; synthetic fixtures; no tax rules beyond stated assumptions"
+}

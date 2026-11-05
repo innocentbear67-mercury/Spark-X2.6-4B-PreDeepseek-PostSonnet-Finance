@@ -1,0 +1,32 @@
+{
+  "area": "agent_tool_use",
+  "profile": "C",
+  "rows": 1000,
+  "by_task": {
+    "calc": 150,
+    "extraction": 150,
+    "qa": 200,
+    "classification": 50,
+    "summarization": 50,
+    "tool_use": 400
+  },
+  "by_split": {
+    "train": 800,
+    "val": 102,
+    "test": 98
+  },
+  "by_answer_type": {
+    "number": 649,
+    "text": 220,
+    "label": 121,
+    "list": 10
+  },
+  "distinct_question_families": 79,
+  "top_family_share": 0.025,
+  "distinct_contexts": 217,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 1.0,
+  "validation": "pass",
+  "sha256": "37092bd6c184007dabc1b7d99940bd56ef3dd9819e935b5ab7db9be8f22a68fe",
+  "notes": "400 multi-turn tool rows over 6 JSON-schema tools; 40 flows incl. ambiguity, argument repair, conflict and abstention."
+}

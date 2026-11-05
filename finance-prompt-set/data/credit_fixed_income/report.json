@@ -1,0 +1,32 @@
+{
+  "area": "credit_fixed_income",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 799,
+    "val": 103,
+    "test": 98
+  },
+  "by_answer_type": {
+    "number": 421,
+    "text": 383,
+    "label": 184,
+    "list": 0
+  },
+  "distinct_question_families": 825,
+  "top_family_share": 0.015,
+  "distinct_contexts": 299,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 0.78,
+  "validation": "pass",
+  "sha256": "6803f4492b845bcabb8868cfa3bf3b1a16d53315dd70445ae4bb4b671e61da7c",
+  "notes": "Synthetic covenant and bond fixtures; every numeric answer recomputed in code."
+}

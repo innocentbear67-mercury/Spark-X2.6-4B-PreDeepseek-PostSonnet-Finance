@@ -1,0 +1,32 @@
+{
+  "area": "fraud_forensics",
+  "profile": "B",
+  "rows": 1000,
+  "by_task": {
+    "calc": 120,
+    "extraction": 220,
+    "qa": 240,
+    "classification": 220,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 399,
+    "text": 159,
+    "list": 24,
+    "label": 368
+  },
+  "distinct_question_families": 225,
+  "top_family_share": 0.028,
+  "distinct_contexts": 362,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 0.88,
+  "validation": "pass",
+  "sha256": "326b5cbd7f9fa951d8d547a397ea01f909036f107f9e4cc1831a521f97562d43",
+  "notes": "Synthetic forensic-accounting fixtures; all derived numbers recomputed in code."
+}

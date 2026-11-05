@@ -1,0 +1,32 @@
+{
+  "area": "sec_filing_compliance",
+  "by_answer_type": {
+    "label": 331,
+    "list": 13,
+    "number": 351,
+    "text": 297
+  },
+  "by_split": {
+    "test": 100,
+    "train": 800,
+    "val": 100
+  },
+  "by_task": {
+    "calc": 120,
+    "classification": 220,
+    "extraction": 220,
+    "qa": 240,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "distinct_contexts": 821,
+  "distinct_question_families": 175,
+  "near_dup_pairs": 0,
+  "notes": "Sec-filing compliance fixtures; fixture-level splits; every answer recomputed in code.",
+  "profile": "B",
+  "rows": 1000,
+  "sha256": "f2f5a93e3101cb0f25d42d4e63361374b94185b42d92879b48f14efb55b796f0",
+  "tool_use_multi_step_share": 0.63,
+  "top_family_share": 0.026,
+  "validation": "pass"
+}

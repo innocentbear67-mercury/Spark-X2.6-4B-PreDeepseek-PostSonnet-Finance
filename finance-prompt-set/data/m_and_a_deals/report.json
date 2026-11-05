@@ -1,0 +1,32 @@
+{
+  "area": "m_and_a_deals",
+  "by_answer_type": {
+    "label": 130,
+    "list": 20,
+    "number": 390,
+    "text": 360
+  },
+  "by_split": {
+    "test": 96,
+    "train": 801,
+    "val": 103
+  },
+  "by_task": {
+    "calc": 280,
+    "classification": 100,
+    "extraction": 220,
+    "qa": 200,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "distinct_contexts": 160,
+  "distinct_question_families": 113,
+  "near_dup_pairs": 0,
+  "notes": "Synthetic deal term blocks; goodwill, accretion and leverage computed from rounded inputs.",
+  "profile": "A",
+  "rows": 1000,
+  "sha256": "f861e7cebc132a4ac7494159dbe887639c9944c17f568b69f95b91420bcd72dd",
+  "tool_use_multi_step_share": 0.8,
+  "top_family_share": 0.02,
+  "validation": "pass"
+}

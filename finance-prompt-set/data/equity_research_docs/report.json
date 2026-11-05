@@ -1,0 +1,32 @@
+{
+  "area": "equity_research_docs",
+  "profile": "B",
+  "rows": 1000,
+  "by_task": {
+    "calc": 120,
+    "extraction": 220,
+    "qa": 240,
+    "classification": 220,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 102,
+    "test": 98
+  },
+  "by_answer_type": {
+    "number": 361,
+    "text": 200,
+    "label": 339
+  },
+  "distinct_question_families": 357,
+  "top_family_share": 0.02,
+  "distinct_contexts": 167,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 1.0,
+  "validation": "pass",
+  "sha256": "57a07c4674b1218fb2ba0a8821a75017891c95fb43e6e6f0eebfd00653fa1a81",
+  "notes": "Synthetic 10-K excerpts; 24 companies, 14 document types, fixture-level splits.",
+  "weakest_spot": "Summarisation rows have null ground_truth; tool rows grade only the final short answer."
+}

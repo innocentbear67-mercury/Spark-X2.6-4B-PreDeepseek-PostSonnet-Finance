@@ -1,0 +1,32 @@
+{
+  "area": "comps_precedent",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 550,
+    "text": 269,
+    "label": 175,
+    "list": 0
+  },
+  "distinct_question_families": 148,
+  "top_family_share": 0.02,
+  "distinct_contexts": 320,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 1.0,
+  "validation": "pass",
+  "sha256": "4186d20eca90c15c1db1ac8f29777bfbb55d291102136c37c6f4b2ec37b66145",
+  "notes": "Synthetic peer tables, precedent tapes and exchange-ratio terms over 30 fictional issuers; every ground truth recomputed from the same fixture."
+}

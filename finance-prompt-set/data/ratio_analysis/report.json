@@ -1,0 +1,32 @@
+{
+  "area": "ratio_analysis",
+  "by_answer_type": {
+    "label": 132,
+    "list": 2,
+    "number": 542,
+    "text": 324
+  },
+  "by_split": {
+    "test": 100,
+    "train": 800,
+    "val": 100
+  },
+  "by_task": {
+    "calc": 280,
+    "classification": 100,
+    "extraction": 220,
+    "qa": 200,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "distinct_contexts": 174,
+  "distinct_question_families": 87,
+  "near_dup_pairs": 0,
+  "notes": "Synthetic ratio fixtures, 20 issuers, 87 question families.",
+  "profile": "A",
+  "rows": 1000,
+  "sha256": "be2f39b86d5317a77a2dcff96b9341b67a12ad4943811f55c26bf2035b56aa00",
+  "tool_use_multi_step_share": 1.0,
+  "top_family_share": 0.02,
+  "validation": "pass"
+}

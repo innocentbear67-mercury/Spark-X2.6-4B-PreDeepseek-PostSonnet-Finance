@@ -1,0 +1,32 @@
+{
+  "area": "earnings_transcripts",
+  "profile": "B",
+  "rows": 1000,
+  "by_task": {
+    "calc": 120,
+    "extraction": 220,
+    "qa": 240,
+    "summarization": 100,
+    "tool_use": 100,
+    "classification": 220
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 468,
+    "text": 144,
+    "list": 158,
+    "label": 230
+  },
+  "distinct_question_families": 66,
+  "top_family_share": 0.038,
+  "distinct_contexts": 187,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 1.0,
+  "validation": "pass",
+  "sha256": "deb59294617f9f5855c4d69e7900bd5752b4d9e6ffe8749893eb273cc2db92e7",
+  "notes": "Synthetic transcript excerpts; 24 fictional issuers, 8 quarters each; every figure computed in code."
+}

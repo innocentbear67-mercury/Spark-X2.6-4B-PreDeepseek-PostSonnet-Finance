@@ -1,0 +1,33 @@
+{
+  "area": "risk_sentiment",
+  "profile": "B",
+  "rows": 1000,
+  "by_task": {
+    "calc": 120,
+    "extraction": 220,
+    "qa": 240,
+    "classification": 220,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 246,
+    "text": 438,
+    "label": 284,
+    "list": 32
+  },
+  "distinct_question_families": 291,
+  "top_family_share": 0.03,
+  "distinct_contexts": 835,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 0.7,
+  "validation": "pass",
+  "sha256": "e2696df2a8ec71cda7cc965838344cb7191b470c36df69aa4e9a95474e9cb309",
+  "notes": "Synthetic risk-register and disclosure text with authored labels; numeric answers recomputed from the same fixture values.",
+  "weakest_spot": "Summarisation references are template-shaped, so exact-match scoring rewards template fidelity more than prose quality."
+}

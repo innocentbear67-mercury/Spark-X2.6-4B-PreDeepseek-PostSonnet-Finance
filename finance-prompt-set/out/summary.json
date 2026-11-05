@@ -1,0 +1,269 @@
+{
+  "rows_total": 20000,
+  "areas_passing": 20,
+  "areas_total": 20,
+  "fixture_groups": 8235,
+  "documents_straddling_splits": 0,
+  "by_task": {
+    "calc": 4510,
+    "extraction": 4330,
+    "qa": 4240,
+    "classification": 2670,
+    "summarization": 1950,
+    "tool_use": 2300
+  },
+  "by_split": {
+    "val": 2029,
+    "train": 15969,
+    "test": 2002
+  },
+  "split_task": {
+    "train": {
+      "calc": 3604,
+      "extraction": 3459,
+      "qa": 3388,
+      "classification": 2136,
+      "summarization": 1554,
+      "tool_use": 1828
+    },
+    "val": {
+      "calc": 455,
+      "extraction": 435,
+      "qa": 428,
+      "classification": 267,
+      "summarization": 201,
+      "tool_use": 243
+    },
+    "test": {
+      "calc": 451,
+      "extraction": 436,
+      "qa": 424,
+      "classification": 267,
+      "summarization": 195,
+      "tool_use": 229
+    }
+  },
+  "split_areas": {
+    "train": 20,
+    "val": 20,
+    "test": 20
+  },
+  "by_answer_type": {
+    "number": 9805,
+    "text": 5982,
+    "label": 3750,
+    "list": 463
+  },
+  "by_thinking": {
+    "on": 11050,
+    "off": 8950
+  },
+  "by_area": {
+    "financial": 1000,
+    "ratio": 1000,
+    "valuation": 1000,
+    "comps": 1000,
+    "equity": 1000,
+    "earnings": 1000,
+    "segment": 1000,
+    "credit": 1000,
+    "macro": 1000,
+    "accounting": 1000,
+    "m": 1000,
+    "sec": 1000,
+    "risk": 1000,
+    "fraud": 1000,
+    "banking": 1000,
+    "reits": 1000,
+    "energy": 1000,
+    "private": 1000,
+    "personal": 1000,
+    "agent": 1000
+  },
+  "distinct_question_families": 17610,
+  "cross_area_duplicate_families": 0,
+  "same_area_duplicate_families": 673,
+  "problems": [],
+  "per_area": [
+    {
+      "area": "financial_statement_calc",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 331,
+      "top_share": 0.02
+    },
+    {
+      "area": "ratio_analysis",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 87,
+      "top_share": 0.02
+    },
+    {
+      "area": "valuation_dcf",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 143,
+      "top_share": 0.025
+    },
+    {
+      "area": "comps_precedent",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 148,
+      "top_share": 0.02
+    },
+    {
+      "area": "equity_research_docs",
+      "profile": "B",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 357,
+      "top_share": 0.02
+    },
+    {
+      "area": "earnings_transcripts",
+      "profile": "B",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 66,
+      "top_share": 0.038
+    },
+    {
+      "area": "segment_breakdown",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 181,
+      "top_share": 0.02
+    },
+    {
+      "area": "credit_fixed_income",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 825,
+      "top_share": 0.015
+    },
+    {
+      "area": "macro_rates",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 281,
+      "top_share": 0.025
+    },
+    {
+      "area": "accounting_policy",
+      "profile": "B",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 224,
+      "top_share": 0.01
+    },
+    {
+      "area": "m_and_a_deals",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 113,
+      "top_share": 0.02
+    },
+    {
+      "area": "sec_filing_compliance",
+      "profile": "B",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 175,
+      "top_share": 0.026
+    },
+    {
+      "area": "risk_sentiment",
+      "profile": "B",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 291,
+      "top_share": 0.03
+    },
+    {
+      "area": "fraud_forensics",
+      "profile": "B",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 225,
+      "top_share": 0.028
+    },
+    {
+      "area": "banking_insurance",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 439,
+      "top_share": 0.026
+    },
+    {
+      "area": "reits_real_estate",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 208,
+      "top_share": 0.02
+    },
+    {
+      "area": "energy_commodities",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 176,
+      "top_share": 0.022
+    },
+    {
+      "area": "private_markets_pe",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 963,
+      "top_share": 0.024
+    },
+    {
+      "area": "personal_finance_calc",
+      "profile": "A",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 104,
+      "top_share": 0.021
+    },
+    {
+      "area": "agent_tool_use",
+      "profile": "C",
+      "status": "pass",
+      "rows": 1000,
+      "dups": 0,
+      "families": 79,
+      "top_share": 0.025
+    }
+  ]
+}

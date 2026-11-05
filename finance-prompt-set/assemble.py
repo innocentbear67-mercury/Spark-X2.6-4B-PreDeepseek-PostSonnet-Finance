@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+"""Assemble training examples from the prompt set at load time.
+
+The JSONL stores pieces (context, question, ground_truth) so the instruction
+template can change without regenerating 20k rows. This is that template.
+
+    python3 assemble.py --stats
+    python3 assemble.py --split val --limit 3 --show
+
+    from assemble import to_example
+    ex = to_example(row)         # {"messages": [...], "target": "..."}
+"""
+import argparse
+import json
+import os
+
+SYSTEM = (
+    "You are a financial analyst. Use only the information given in the prompt. "
+    "Show the calculation when a number is requested. "
+    "Answer with a single value when the question asks for one: a number in the units "
+    "stated in the source, a label from the label set given, or a list of items. "
+    "If the data needed is not present, say what is missing instead of estimating."
+)
+
+SYSTEM_ANSWER_ONLY = (
+    "You are a financial analyst. Answer directly and briefly. "
+    "Give the value, label or span requested, in the units stated in the source."
+)
+
+FORMAT_HINT = {
+    "number": "Reply with the number only, no units and no thousands separators.",
+    "text": "Reply in one or two sentences.",
+    "label": "Reply with one label from the set given in the question.",
+    "list": "Reply with the items, one per line.",
+}
+
+
+def build_messages(row):
+    at = row.get("answer_type")
+    system = SYSTEM if row.get("thinking") == "on" else SYSTEM_ANSWER_ONLY
+    if at in FORMAT_HINT:
+        system = system + " " + FORMAT_HINT[at]
+    if "messages" in row:
+        return [{"role": "system", "content": system}] + row["messages"]
+    ctx = row.get("context") or ""
+    q = row["question"]
+    content = f"{ctx}\n\n{q}" if ctx else q
+    return [{"role": "system", "content": system}, {"role": "user", "content": content}]
+
+
+def format_target(row):
+    gt = row.get("ground_truth")
+    if gt is None:
+        return None
+    if isinstance(gt, list):
+        return "\n".join(gt)
+    if isinstance(gt, float) and gt.is_integer():
+        return str(int(gt))
+    return str(gt)
+
+
+def to_example(row):
+    ex = {"id": row["id"], "task": row["task"], "answer_type": row["answer_type"],
+          "tolerance": row.get("tolerance"), "messages": build_messages(row),
+          "target": format_target(row), "thinking": row.get("thinking")}
+    if "tools" in row:
+        ex["tools"] = row["tools"]
+    return ex
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    root = os.path.dirname(os.path.abspath(__file__))
+    ap.add_argument("--split", default="all", choices=["train", "val", "test", "all"])
+    ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--stats", action="store_true")
+    ap.add_argument("--show", action="store_true")
+    a = ap.parse_args()
+    path = os.path.join(root, "out", f"{a.split}.jsonl")
+    rows = [json.loads(l) for l in open(path, encoding="utf-8") if l.strip()]
+    if a.limit:
+        rows = rows[: a.limit]
+    if a.stats:
+        from collections import Counter
+        print(json.dumps({"split": a.split, "rows": len(rows),
+                          "task": dict(Counter(r["task"] for r in rows)),
+                          "targets_present": sum(1 for r in rows if r.get("ground_truth") is not None)},
+                         indent=2))
+        return
+    for r in rows:
+        ex = to_example(r)
+        if a.show:
+            print(json.dumps(ex, indent=2, ensure_ascii=False)[:1200])
+        else:
+            print(json.dumps(ex, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

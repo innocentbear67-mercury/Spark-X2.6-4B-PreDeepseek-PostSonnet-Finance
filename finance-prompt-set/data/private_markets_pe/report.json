@@ -1,0 +1,32 @@
+{
+  "area": "private_markets_pe",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "test": 102,
+    "train": 798,
+    "val": 100
+  },
+  "by_answer_type": {
+    "number": 614,
+    "text": 258,
+    "list": 20,
+    "label": 108
+  },
+  "distinct_question_families": 963,
+  "top_family_share": 0.024,
+  "distinct_contexts": 225,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 0.66,
+  "validation": "pass",
+  "sha256": "2d0ff4c1e03296bcfa740348b30cda186c7a5571e36263c47e27d44e788bca5a",
+  "notes": "20 synthetic PE funds and 23 portfolio companies; IRR by bisection on dated flows; waterfall, LBO, J-curve and subscription-line metrics derived in code; splits assigned per fixture within task strata."
+}

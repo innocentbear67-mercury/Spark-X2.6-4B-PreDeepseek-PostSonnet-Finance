@@ -1,0 +1,31 @@
+{
+  "area": "reits_real_estate",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 798,
+    "val": 96,
+    "test": 106
+  },
+  "by_answer_type": {
+    "number": 702,
+    "text": 134,
+    "label": 100
+  },
+  "distinct_question_families": 208,
+  "top_family_share": 0.02,
+  "distinct_contexts": 236,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 1.0,
+  "validation": "pass",
+  "sha256": "66557a4b0254f7108c513405a5ccdb0586e9ef0bd74900682bd30feb211c0cd5",
+  "notes": "Synthetic REIT portfolios; every figure derived from the printed fixture tables."
+}

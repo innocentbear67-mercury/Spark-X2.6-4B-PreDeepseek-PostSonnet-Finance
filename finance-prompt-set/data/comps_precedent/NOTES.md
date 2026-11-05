@@ -1,0 +1,10 @@
+# comps_precedent — build notes
+
+- 320 synthetic fixtures over 30 fictional issuers in five sectors, rendered through nine context shapes: full peer tables (EV bridge with debt, cash, minorities, preferred and pension deficit), bank tables (P/TBV and P/E, no EBITDA), calendarised peer tables with explicit FY weights, precedent-transaction tapes, premium tapes with 30/90-day VWAP and 52-week-high benchmarks, stock-for-stock exchange terms with collars, implied-range pages, a misleading-multiple screen and five memo formats.
+- Splits are assigned per task stratum by ranking sha256 of the fixture key, so a fixture's rows stay together: 224/28/28 calc, 176/22/22 extraction, 160/20/20 qa, 80/10/10 for the other three.
+- 148 distinct masked question families; the largest holds 2.0% and no (context, family) pair repeats. Zero masked context+question duplicates, so nothing straddles splits.
+- 439 calc and extraction rows were re-derived outside the generator from the rendered markdown tables alone (EV bridge, medians, calendarisation, premiums, exchange ratios, FX, adjusted EBITDA); 0 mismatches.
+- Calc coverage: 4-5 name EV bridges, mean vs median vs trimmed mean, median excluding the high outlier, EV/EBIT, EV/Sales, P/E, EV/FCF, leverage, calendarised multiples, implied EV/equity/per-share ranges, premium and discount to peers, premiums to unaffected/30/90-day VWAP/52-week high, exchange ratios, collar adjustment, FX conversion.
+- Misleading-multiple rows: negative earnings (P/E unusable, EV/Sales instead), add-backs above 25% of EBITDA flagged distorted, capex-heavy peers cross-checked on EV/EBIT, banks excluded from EV multiples, outlier-driven means contrasted with medians.
+- Known weakness: peer sets are only 4-5 names, so a median is coarse; one high multiple is engineered in half the peer fixtures, which makes mean-vs-median questions easier than live data would be.
+- Gap: no synergy-adjusted pro forma EPS accretion/dilution, no LBO returns, no REIT/insurance conventions; the premium tape uses a single unaffected close rather than a 20-day average.

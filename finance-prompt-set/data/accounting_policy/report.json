@@ -1,0 +1,32 @@
+{
+  "area": "accounting_policy",
+  "by_answer_type": {
+    "label": 220,
+    "list": 0,
+    "number": 360,
+    "text": 237
+  },
+  "by_split": {
+    "test": 100,
+    "train": 800,
+    "val": 100
+  },
+  "by_task": {
+    "calc": 120,
+    "classification": 220,
+    "extraction": 220,
+    "qa": 240,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "distinct_contexts": 180,
+  "distinct_question_families": 224,
+  "near_dup_pairs": 0,
+  "notes": "25 fictitious issuers x 8 policy notes; fixture-level splits; all answers recomputed in code.",
+  "profile": "B",
+  "rows": 1000,
+  "sha256": "a33bc02206f835894b909477d72a4344c3c7a516d9eb3e217bc41380a46b98f0",
+  "tool_use_multi_step_share": 1.0,
+  "top_family_share": 0.01,
+  "validation": "pass"
+}

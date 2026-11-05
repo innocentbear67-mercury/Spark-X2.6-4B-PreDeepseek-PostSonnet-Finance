@@ -1,0 +1,32 @@
+{
+  "area": "valuation_dcf",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 711,
+    "text": 178,
+    "label": 100,
+    "list": 11
+  },
+  "distinct_question_families": 143,
+  "top_family_share": 0.025,
+  "distinct_contexts": 257,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 1.0,
+  "validation": "pass",
+  "sha256": "0eac309647e539b438ae6a9f3b276de67d1d830b49574bf27b5d96797dfa0753",
+  "notes": "Synthetic fixtures over 20 fictional issuers and 10 scenarios; every ground truth is recomputed from the fixture dict rendered into context."
+}

@@ -1,0 +1,33 @@
+{
+  "area": "banking_insurance",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 450,
+    "text": 340,
+    "list": 26,
+    "label": 184
+  },
+  "distinct_question_families": 439,
+  "top_family_share": 0.026,
+  "distinct_contexts": 184,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 0.82,
+  "validation": "pass",
+  "sha256": "32639d20ba33a2a0c9a38f3170fe81656a4bfd0608c66c1aba382b9702831f57",
+  "notes": "Synthetic bank and insurer summary tables; every answer recomputed from the rendered numbers.",
+  "post_fix": "16 embedded-value growth rows reworded to name the opening-to-closing basis; row count and quotas unchanged"
+}

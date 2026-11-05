@@ -1,0 +1,31 @@
+{
+  "area": "macro_rates",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 319,
+    "text": 377,
+    "label": 204
+  },
+  "distinct_question_families": 281,
+  "top_family_share": 0.025,
+  "distinct_contexts": 384,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 0.9,
+  "validation": "pass",
+  "sha256": "2174d795bef1492377c7c23849d700c4170bcb494beae33775e23852695525e9",
+  "notes": "123 authored templates (36 calc, 10 extraction, 23 table qa plus 20 knowledge items, 10 classification rules, 14 summaries, 10 tool flows); all figures synthetic and recomputed from printed values."
+}

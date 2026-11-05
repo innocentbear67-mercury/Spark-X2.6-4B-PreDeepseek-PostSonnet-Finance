@@ -1,0 +1,33 @@
+{
+  "area": "segment_breakdown",
+  "profile": "A",
+  "rows": 1000,
+  "by_task": {
+    "calc": 280,
+    "extraction": 220,
+    "qa": 200,
+    "classification": 100,
+    "summarization": 100,
+    "tool_use": 100
+  },
+  "by_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "by_answer_type": {
+    "number": 480,
+    "text": 218,
+    "label": 240,
+    "list": 62
+  },
+  "distinct_question_families": 181,
+  "top_family_share": 0.02,
+  "distinct_contexts": 292,
+  "near_dup_pairs": 0,
+  "tool_use_multi_step_share": 1.0,
+  "validation": "pass",
+  "sha256": "5f8329e906176b6dddedaa7cf7e46799afa078c8d85a62cbc5c310e21c613ba8",
+  "notes": "Synthetic segment disclosures only; splits assigned per fixture by sha256 inside each task stratum.",
+  "weakest_spot": "Summarization rows carry no reference answer, and the five classification prompts use a constructed three-segment skeleton whose label is fixed by design rather than observed."
+}
