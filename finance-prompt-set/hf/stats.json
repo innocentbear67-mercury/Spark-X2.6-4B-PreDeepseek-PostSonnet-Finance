@@ -1,0 +1,11 @@
+{
+  "rows": 20000,
+  "text_chars": {
+    "mean": 1415,
+    "p50": 1200,
+    "p95": 2619,
+    "max": 4186
+  },
+  "with_tools": 2300,
+  "ground_truth_missing": 751
+}

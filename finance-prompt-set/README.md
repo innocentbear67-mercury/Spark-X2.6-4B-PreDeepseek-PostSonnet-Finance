@@ -24,12 +24,22 @@ finance-prompt-set/
 ├── areas.json             the 20 areas, profiles, scopes, wave assignment
 ├── validate.py            schema + quota + diversity + hygiene gate (10 hard rules)
 ├── aggregate.py           re-validates every area, canonical split pass, audits
-├── assemble.py            builds final prompts at load time (no template in the data)
+├── assemble.py            builds final prompts at load time (no template in the data);
+│                          also defines the chatml assembly HF reuses (build_hf_text)
 ├── data/<area>/           1,000 rows each: generate.py, prompts.jsonl, report.json, NOTES.md
-└── out/
-    ├── train.jsonl  val.jsonl  test.jsonl  all.jsonl
-    ├── summary.json       counts, per-area validator results, problems list
-    └── COVERAGE.md        per-area table + rows by task and split
+├── out/
+│   ├── train.jsonl  val.jsonl  test.jsonl  all.jsonl
+│   ├── summary.json       counts, per-area validator results, problems list
+│   └── COVERAGE.md        per-area table + rows by task and split
+├── raw/
+│   └── validation_passed_prompts.jsonl   local build artifact: the checked union
+│                                          (20,000 rows; regenerable from out/ splits)
+└── hf/
+    ├── unified_prompts.jsonl  chat-native conversion, 20,000 rows, 12 string columns
+    ├── generate_hf.py         converter (imports assembly from assemble.py); rerun with
+    │                          `python3 hf/generate_hf.py --root .`
+    ├── dataset_card.md        Hub-ready card: schema table, load snippets, limitations
+    └── stats.json             row count, text-length percentiles, tools/gt coverage
 ```
 
 ## The 20 areas
@@ -102,6 +112,14 @@ ex = to_example(row)          # {"messages": [...], "target": "...", "tools": [.
 `assemble.py` builds the system prompt from `answer_type` and `thinking`, so changing the
 instruction template never requires regenerating the data. `python3 assemble.py --stats`
 prints split composition; `--show` previews one assembled example.
+
+For Hugging Face consumers we also ship a chat-native conversion:
+`hf/unified_prompts.jsonl` — 20,000 rows, 12 string columns, one chatml transcript per
+row (`text`), tool schemas as JSON strings, ground truths as plain text (see
+`hf/dataset_card.md` for the schema table and load snippets). Generated and checkable by
+`hf/generate_hf.py`, which imports the same `build_hf_text` assembly that any training
+or eval script should import from `assemble.py` — so HF prompts are identical to live
+ones by construction, not by convention.
 
 ## How this was verified
 
