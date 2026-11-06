@@ -34,12 +34,20 @@ finance-prompt-set/
 ├── raw/
 │   └── validation_passed_prompts.jsonl   local build artifact: the checked union
 │                                          (20,000 rows; regenerable from out/ splits)
-└── hf/
-    ├── unified_prompts.jsonl  chat-native conversion, 20,000 rows, 12 string columns
-    ├── generate_hf.py         converter (imports assembly from assemble.py); rerun with
-    │                          `python3 hf/generate_hf.py --root .`
-    ├── dataset_card.md        Hub-ready card: schema table, load snippets, limitations
-    └── stats.json             row count, text-length percentiles, tools/gt coverage
+├── hf/
+│   ├── unified_prompts.jsonl  chat-native conversion, 20,000 rows, 12 string columns
+│   ├── generate_hf.py         converter (imports assembly from assemble.py); rerun with
+│   │                          `python3 hf/generate_hf.py --root .`
+│   ├── dataset_card.md        Hub-ready card: schema table, load snippets, limitations
+│   └── stats.json             row count, text-length percentiles, tools/gt coverage
+├── teacher.py             DeepSeek teacher via OpenCode Go (reasoning traces)
+├── build_sft.py           join + filter + messages-format SFT writer
+└── sft/
+    ├── answers_raw.jsonl  10,698 teacher answers with reasoning (deepseek-v4.1-flash)
+    ├── train.jsonl  val.jsonl  test.jsonl   16,531 kept SFT rows
+    ├── dataset_info.json  sharegpt dataset card (LLaMA-Factory)
+    ├── report.json        keep/reject counts per task
+    └── rejected.jsonl     dropped rows with reasons
 ```
 
 ## The 20 areas
@@ -120,6 +128,29 @@ row (`text`), tool schemas as JSON strings, ground truths as plain text (see
 `hf/generate_hf.py`, which imports the same `build_hf_text` assembly that any training
 or eval script should import from `assemble.py` — so HF prompts are identical to live
 ones by construction, not by convention.
+
+## Teacher + SFT
+
+`teacher.py` sent the 10,698 `thinking == "on"` rows to DeepSeek V4.1 Flash through
+OpenCode Go and saved reasoning + answer per row to `sft/answers_raw.jsonl`
+(10,680 with traces). `build_sft.py` kept only rows whose answer matches ground
+truth within tolerance **and** returned reasoning, writing `<think>reasoning</think>`
+plus the ground-truth answer as messages-format JSONL: **16,531 kept** (train 13,170
+/ val 1,702 / test 1,659). Off-rows reuse ground truth directly; the 751 open-ended
+rows are skipped. Reproduce with:
+
+```bash
+python3 teacher.py --data out --workers 4 --model deepseek-v4.1-flash
+python3 build_sft.py --data out --answers answers_raw.jsonl --out sft_out
+```
+
+Two gateway lessons baked into `teacher.py`: send a real `User-Agent` plus a stable
+`x-opencode-session` header (the gateway 403s library UAs and 400s missing session
+IDs), and use the exact model ID `deepseek-v4.1-flash`. Before fine-tuning, check
+Spark's `chat_template.jinja` — `build_sft.py` defaults to `<think>` tags, with
+`--think-style none` and `--empty-think-for-off` if the template wants Qwen3-style
+handling instead. Tool-use rows are flattened to plain text; real tool-call training
+needs the chat template format.
 
 ## How this was verified
 

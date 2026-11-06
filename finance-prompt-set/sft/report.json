@@ -1,0 +1,31 @@
+{
+  "calc|on": {
+    "kept": 3833,
+    "rejected_wrong_answer": 259,
+    "rejected_truncated": 418
+  },
+  "classification|off": {
+    "kept": 2670
+  },
+  "extraction|off": {
+    "kept": 4330
+  },
+  "qa|on": {
+    "kept": 2780,
+    "rejected_wrong_answer": 1270,
+    "rejected_truncated": 184,
+    "skipped_no_ground_truth": 6
+  },
+  "summarization|off": {
+    "kept": 1551,
+    "skipped_no_ground_truth": 399
+  },
+  "tool_use|on": {
+    "kept": 1367,
+    "rejected_wrong_answer": 517,
+    "rejected_truncated": 52,
+    "skipped_no_ground_truth": 346,
+    "rejected_no_reasoning": 18
+  },
+  "_note": "tool_use rows are flattened to plain text (tool role -> user 'Tool result:'). Real tool-call training needs Spark's chat template format. Unverified."
+}
